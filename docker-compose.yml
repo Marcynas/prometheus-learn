@@ -24,3 +24,11 @@ services :
     ports:
       - 8000:8000
       - 8001:8001
+
+  alertmanager:
+    image: prom/alertmanager
+    volumes:
+      - ./alertmanager/:/etc/alertmanager/
+    ports:
+      - 9093:9093
+

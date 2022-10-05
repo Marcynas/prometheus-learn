@@ -5,6 +5,12 @@ global:
   external_labels:
     monitor: 'codelab-monitor'
 
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - localhost:9093
+
 rule_files:
   - "rules/myrules.yml"
   - "rules/myalerts.yml"
