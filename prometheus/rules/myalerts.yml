@@ -1,0 +1,30 @@
+groups:
+  - name: my-alerts
+    rules:
+
+      - alert: NodeExporterDown
+        expr: up{job="node_exporter"} == 0
+        for: 1m
+
+      - alert: AppPythonDown
+        expr: up{job="app_python"} == 0
+        for: 1m
+        labels:
+          severity: GG
+
+      - record: job:aapp_response_latency_sec:rate1m
+        expr: rate(app_response_latency_sec_sum[1m]) / rate(app_response_latency_sec_count[1m])
+
+      - alert: AppPythonLatencyAbove5sec
+        expr: job:aapp_response_latency_sec:rate1m >= 5
+        for: 2m
+        labels:
+          severity: CRITICAL
+
+      - alert: AppPythonLatencyAbove2sec
+        expr: 2 < job:aapp_response_latency_sec:rate1m < 5
+        for: 2m
+        labels:
+          severity: WARNING
+
+    
