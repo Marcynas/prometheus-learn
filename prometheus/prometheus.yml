@@ -63,3 +63,8 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['host.docker.internal:9091']
+
+  - job_name: 'grafana'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['host.docker.internal:3000']

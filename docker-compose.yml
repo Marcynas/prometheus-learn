@@ -47,3 +47,10 @@ services :
       - ./pushgateway/:/etc/pushgateway/
     ports:
       - 9091:9091
+
+  grafana:
+    image: grafana/grafana-enterprise
+    ports:
+      - 3000:3000
+
+
