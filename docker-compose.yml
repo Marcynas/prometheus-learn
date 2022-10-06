@@ -31,4 +31,6 @@ services :
       - ./alertmanager/:/etc/alertmanager/
     ports:
       - 9093:9093
+    environment:
+      GMAIL_APP_PASS: ${GMAIL_APP_PASSWORD}
 
