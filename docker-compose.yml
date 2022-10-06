@@ -43,3 +43,7 @@ services :
 
   pushgateway:
     image: prom/pushgateway
+    volumes:
+      - ./pushgateway/:/etc/pushgateway/
+    ports:
+      - 9091:9091
