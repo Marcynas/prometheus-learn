@@ -5,9 +5,9 @@ route:
 receivers:
 - name : admin
   email_configs:
-  - to: example.mail@mail.com
-    from: example.mail@mail.com
+  - to: example@mail.com
+    from: example@mail.com
     smarthost: smtp.gmail.com:587
-    auth_username: example.mail@mail.com
-    auth_identity: example.mail@mail.com
-    auth_password: ${GMAIL_APP_PASSWORD}
+    auth_username: example@mail.com
+    auth_identity: example@mail.com
+    auth_password: ${EXAMPLE_GMAIL_APP_PASSWORD}

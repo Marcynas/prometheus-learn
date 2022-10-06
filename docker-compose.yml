@@ -32,5 +32,14 @@ services :
     ports:
       - 9093:9093
     environment:
-      GMAIL_APP_PASS: ${GMAIL_APP_PASSWORD}
+      GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD}
 
+  blackbox-exporter:
+    image: prom/blackbox-exporter
+    volumes:
+      - ./blackbox/:/etc/blackbox_exporter/
+    ports:
+      - 9115:9115
+
+  pushgateway:
+    image: prom/pushgateway
