@@ -1,5 +1,6 @@
+from atexit import register
 import http.server
-from prometheus_client import start_http_server, Counter, Gauge, Summary
+from prometheus_client import start_http_server, Counter, Gauge, Summary, CollectorRegistry, push_to_gateway
 import time
 
 APP_PORT = 8000
@@ -9,6 +10,10 @@ REQUEST_COUNT = Counter("app_requests_count", "total all http request count",['a
 REQUEST_INPROGRESS = Gauge("app_requests_inprogress","number of app  requests in progress", )
 REQUEST_LAST_SERVED = Gauge("app_last_served","Time the application was last served")
 REQUEST_RESPOND_TIME = Summary("app_response_latency_sec", "latency in seconds")
+
+
+registry = CollectorRegistry()
+g = Gauge('job_last_success_unixtime', 'Last time a batch job successfully finished', registry=registry)
 
 class HandleRequests(http.server.BaseHTTPRequestHandler):
 
@@ -24,6 +29,8 @@ class HandleRequests(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes("<html><body>  It works :)! </body></html>","utf-8"))
         self.wfile.close()
+        g.set_to_current_time()
+        push_to_gateway('host.docker.internal:9091', job='batchA', registry=registry) 
         REQUEST_LAST_SERVED.set_to_current_time()
         #REQUEST_LAST_SERVED.set(time.time())
         #REQUEST_INPROGRESS.dec()
@@ -34,5 +41,4 @@ if __name__ == "__main__":
     start_http_server(METRICS_PORT)
     server = http.server.HTTPServer(('0.0.0.0', APP_PORT),HandleRequests)
     print("It's ON!")
-    server.serve_forever()
-    
+    server.serve_forever() 
