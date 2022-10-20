@@ -2,10 +2,10 @@
 Learning prometheus
 
 ### Made using:
-* ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C.svg?style=for-the-badge&logo=Prometheus&logoColor=white)
-* ![Grafana](https://img.shields.io/badge/Grafana-F46800.svg?style=for-the-badge&logo=Grafana&logoColor=white)
-* ![Python](https://img.shields.io/badge/Python-3776AB.svg?style=for-the-badge&logo=Python&logoColor=white)
-* ![Docker](https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=Docker&logoColor=white)
+* <a href="https://prometheus.io/"> ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C.svg?style=for-the-badge&logo=Prometheus&logoColor=white) </a>
+* <a href="https://grafana.com/">  ![Grafana](https://img.shields.io/badge/Grafana-F46800.svg?style=for-the-badge&logo=Grafana&logoColor=white) </a>
+* <a href="https://www.python.org/">  ![Python](https://img.shields.io/badge/Python-3776AB.svg?style=for-the-badge&logo=Python&logoColor=white) </a>
+* <a href="https://www.docker.com/">  ![Docker](https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=Docker&logoColor=white) </a>
 
 ### Summary:
 
@@ -40,4 +40,7 @@ Grafana has 3 dashboards imported to look at everything.
 
 
 ### Following:
-* https://udemy.com/course/prometheus-course/
+* <a href="https://udemy.com/course/prometheus-course/"> ![Udemy](https://img.shields.io/badge/Udemy-A435F0.svg?style=for-the-badge&logo=Udemy&logoColor=white) </a>
+
+
+
